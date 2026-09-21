@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="postsContainer">
+    {% for post in posts %}
+    <article class="content-section py-3 px-4 mb-4">
+        <div class="d-flex align-items-start gap-3">
+            <img class="rounded-circle article-img flex-shrink-0"
+                src="{{ post.author.image_path if (post.author is mapping and post.author.image_path) else url_for('static', path='profile_pics/default.jpg') }}"
+                alt="{{ post.author.username if post.author is mapping else post.author }}'s profile picture" width="64"
+                height="64" loading="lazy">
+            <div class="flex-grow-1">
+                <div class="article-metadata mb-2">
+                    <a class="me-2 fw-bold text-decoration-none" href="">{{ post.author.username if post.author is
+                        mapping else post.author }}</a>
+                    <small class="text-body-secondary">{{ post.date_posted }}</small>
+                </div>
+                <h2>
+                    <a class="article-title text-decoration-none" href="{{ url_for('post_page', post_id=post.id) }}">{{ post.title }}</a>
+                </h2>
+                <p class="article-content mb-0">{{ post.content }}</p>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock content %}

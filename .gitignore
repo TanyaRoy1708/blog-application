@@ -1,5 +1,42 @@
+# Environments & Packages
 .venv/
+env/
+venv/
+
+# Python Bytecode & Cache
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# Database (SQLite & transaction journals)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# Linters & Testing
 .pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# User Uploaded Media (keep directory structure, ignore uploaded files)
+media/profile_pics/*
+!media/profile_pics/.gitkeep
+
+# Operating System Files
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.idea/
+.vscode/
